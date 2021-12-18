@@ -4,7 +4,6 @@ import java.nio.file.Path;
 import java.util.function.Consumer;
 
 import com.sandpolis.core.foundation.S7SProcess;
-import com.sandpolis.core.instance.state.oid.Oid;
 
 public record SystemdService(Path path, String Type, boolean RemainAfterExit) {
 
@@ -59,27 +58,4 @@ public record SystemdService(Path path, String Type, boolean RemainAfterExit) {
 		return null;
 	}
 
-	public static SystemdService of(Oid oid) {
-		return null;
-	}
-
-	public void enable() {
-		S7SProcess.exec("systemctl", "enable", path.getFileName().toString());
-	}
-
-	public void disable() {
-		S7SProcess.exec("systemctl", "disable", path.getFileName().toString());
-	}
-
-	public void start() {
-		S7SProcess.exec("systemctl", "start", path.getFileName().toString());
-	}
-
-	public void stop() {
-		S7SProcess.exec("systemctl", "stop", path.getFileName().toString());
-	}
-
-	public void restart() {
-		S7SProcess.exec("systemctl", "restart", path.getFileName().toString());
-	}
 }

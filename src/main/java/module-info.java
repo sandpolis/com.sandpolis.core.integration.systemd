@@ -13,5 +13,4 @@ open module com.sandpolis.core.integration.systemd {
 	requires com.sandpolis.core.foundation;
 	requires org.slf4j;
 	requires com.fasterxml.jackson.databind;
-	requires com.sandpolis.core.instance;
 }

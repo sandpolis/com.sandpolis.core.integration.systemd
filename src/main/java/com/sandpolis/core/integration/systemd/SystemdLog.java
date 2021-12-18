@@ -11,5 +11,6 @@ public record SystemdLog(Path log) {
 
 	public Stream<?> stream() throws IOException {
 		new ObjectMapper().createParser(S7SProcess.exec("journalctl", "-o", "json").process().getInputStream());
+		return null;
 	}
 }
