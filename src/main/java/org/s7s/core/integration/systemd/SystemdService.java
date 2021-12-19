@@ -1,9 +1,17 @@
-package com.sandpolis.core.integration.systemd;
+//============================================================================//
+//                                                                            //
+//            Copyright © 2015 - 2022 Sandpolis Software Foundation           //
+//                                                                            //
+//  This source file is subject to the terms of the Mozilla Public License    //
+//  version 2. You may not use this file except in compliance with the MPLv2. //
+//                                                                            //
+//============================================================================//
+package org.s7s.core.integration.systemd;
 
 import java.nio.file.Path;
 import java.util.function.Consumer;
 
-import com.sandpolis.core.foundation.S7SProcess;
+import org.s7s.core.foundation.S7SProcess;
 
 public record SystemdService(Path path, String Type, boolean RemainAfterExit) {
 
@@ -50,10 +58,10 @@ public record SystemdService(Path path, String Type, boolean RemainAfterExit) {
 	}
 
 	public static SystemdService of(Consumer<SystemdServiceStruct> configurator) {
-		
+
 		return null;
 	}
-	
+
 	public static SystemdService of(Path service) {
 		return null;
 	}

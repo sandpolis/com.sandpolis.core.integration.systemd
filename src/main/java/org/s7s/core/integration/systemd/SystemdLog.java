@@ -6,23 +6,19 @@
 //  version 2. You may not use this file except in compliance with the MPLv2. //
 //                                                                            //
 //============================================================================//
+package org.s7s.core.integration.systemd;
 
-plugins {
-	id("java-library")
-	id("org.s7s.build.module")
-	id("org.s7s.build.publish")
-}
+import java.io.IOException;
+import java.nio.file.Path;
+import java.util.stream.Stream;
 
-dependencies {
-	testImplementation("org.junit.jupiter:junit-jupiter-api:5.+")
-	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.+")
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.s7s.core.foundation.S7SProcess;
 
-	// https://github.com/FasterXML/jackson-databind
-	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.4")
+public record SystemdLog(Path log) {
 
-	if (project.getParent() == null) {
-		implementation("org.s7s:core.foundation:+")
-	} else {
-		implementation(project(":core:org.s7s.core.foundation"))
+	public Stream<?> stream() throws IOException {
+		new ObjectMapper().createParser(S7SProcess.exec("journalctl", "-o", "json").process().getInputStream());
+		return null;
 	}
 }
