@@ -18,7 +18,7 @@ dependencies {
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.+")
 
 	// https://github.com/FasterXML/jackson-databind
-	implementation("com.fasterxml.jackson.core:jackson-databind:2.12.4")
+	implementation("com.fasterxml.jackson.core:jackson-databind:2.13.1")
 
 	if (project.getParent() == null) {
 		implementation("org.s7s:core.foundation:+")
