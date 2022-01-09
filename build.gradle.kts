@@ -11,6 +11,12 @@ plugins {
 	id("java-library")
 	id("org.s7s.build.module")
 	id("org.s7s.build.publish")
+	kotlin("multiplatform") version "1.6.10"
+}
+
+kotlin {
+	jvm()
+	linuxX64()
 }
 
 dependencies {
